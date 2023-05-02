@@ -43,20 +43,20 @@ module.exports = async function createGroups(page) {
   ///////////////////////////////////// Scraping all things releated to posts  ////////////////////////////////////////////////////////////////////////////////
   const postLinks = await getLink(postLink_selector, page);
   // Scraping for all post Content //
-  const posts = await getText(postContent_selector, page);
+  const allPosts = await getText(postContent_selector, page);
   // Scraping for all post Images
   const postImages = await getImage(postImage_selector, page);
   // Scraping for all post Likes
   const postLikes = await getText(postLikes_selector, page);
-  // Scraping for all posts Time of Post
+  // Scraping for all allPosts Time of Post
   const timeOfPost = await getText(timeOfPost_selector, page);
 
-  for (let i = 0; i < posts.length; i++) {
-    result.push({
+  for (let i = 0; i < allPosts.length; i++) {
+    const post = {
       dateOfTheScrape: date,
-      nameOfPoster: target,
+      nameOfPoster: target[0],
       postLink: postLinks[i],
-      postContent: posts[i],
+      postContent: allPosts[i],
       numberOfLikes: postLikes[i],
       postImage: postImages[i],
       timeOfPost: timeOfPost[i],
@@ -71,7 +71,10 @@ module.exports = async function createGroups(page) {
           commentSentiment: "",
         },
       ],
-    });
+    };
+    const posts = new Posts(post);
+    await posts.save();
+    result.push(post);
   }
   return result;
 };

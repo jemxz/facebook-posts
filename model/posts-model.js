@@ -9,8 +9,9 @@ const posts = new Schema({
   numberOfLikes: String,
   postImage: String,
   timeOfPost: String,
-  // numberOfShares: String,
-  // postSentiment: String,
+  numberOfComments: String,
+  numberOfShares: String,
+  postSentiment: String,
   comments: [
     {
       commentContent: String,
@@ -19,7 +20,6 @@ const posts = new Schema({
       commentSentiment: String,
     },
   ],
-  date: String,
 });
 
 const Posts = mongoose.model("Posts", posts);

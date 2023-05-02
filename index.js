@@ -37,7 +37,6 @@ async function createGroupsCollection() {
   const page = await browser.newPage();
   console.log("Launching Page");
   page.setDefaultNavigationTimeout(100000);
-  console.log("Authenticated proxy");
 
   // LOGING IN TO A FACEBOOK ACCOUNT --- //
   try {
@@ -47,12 +46,7 @@ async function createGroupsCollection() {
     return console.log(error.message);
   }
 
-  const result = await createPosts(page);
-  console.log(result);
-  const posts = new Posts({
-    posts: result,
-  });
-  await posts.save();
+  await createPosts(page);
 
   browser.close();
 }
