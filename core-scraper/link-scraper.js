@@ -8,7 +8,7 @@ module.exports = async function getLink(divSelector, page) {
       return elements.length;
     }, div_selector);
 
-    console.log(list_length);
+    // console.log(list_length);
 
     for (let i = 0; i < list_length; i++) {
       var href = await page.evaluate(
@@ -24,6 +24,6 @@ module.exports = async function getLink(divSelector, page) {
   } catch (error) {
     return console.log(error.message);
   }
-
+  console.log(links);
   return links;
 };
