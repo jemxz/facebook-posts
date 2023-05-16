@@ -48,7 +48,7 @@ async function createGroupsCollection() {
 
   await createPosts(page);
 
-  browser.close();
+  // browser.close();
 }
 
 createGroupsCollection();

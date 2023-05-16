@@ -8,7 +8,7 @@ module.exports = async function getImage(divSelector, page) {
       return elements.length;
     }, div_selector);
 
-    console.log(list_length);
+    //    console.log(list_length);
 
     for (let i = 0; i < list_length; i++) {
       var href = await page.evaluate(
