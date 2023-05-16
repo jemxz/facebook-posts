@@ -1,5 +1,5 @@
 const fs = require("fs");
-// var arr = fs.readFileSync("/home/osint/Desktop/osint/Facebook/Facebook=posts/credentials.txt", "utf-8").split("\n");
+// var arr = fs.readFileSync("/home/osint/Desktop/osint/Facebook/facebook-posts/credentials.txt", "utf-8").split("\n");
 var arr = fs.readFileSync("./credentials.txt", "utf-8").split("\n");
 
 const email = arr[0];
