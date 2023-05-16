@@ -12,6 +12,7 @@ const posts = new Schema({
   numberOfComments: String,
   numberOfShares: String,
   postSentiment: String,
+  aboutPage: Object,
   comments: [
     {
       commentContent: String,

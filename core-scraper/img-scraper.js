@@ -22,7 +22,9 @@ module.exports = async function getImage(divSelector, page) {
       images.push(href);
     }
   } catch (error) {
-    return console.log(error.message);
+    console.log(error.message);
+    const length = 300; // Desired length of the array
+    return Array(length).fill("");
   }
 
   return images;

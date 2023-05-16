@@ -45,6 +45,9 @@ async function createGroupsCollection() {
   } catch (error) {
     return console.log(error.message);
   }
+  // Emulate a mobile device
+  const mobileDevice = puppeteer.devices["iPhone X"];
+  await page.emulate(mobileDevice);
 
   await createPosts(page);
 

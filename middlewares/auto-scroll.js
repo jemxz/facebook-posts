@@ -1,7 +1,7 @@
-async function scrollToBottom(page) {
+async function scrollToBottom(page, time) {
   const distance = 1000; // should be less than or equal to window.innerHeight
   const delay = 3000;
-  const duration = 10000;
+  const duration = time;
   let startTime;
   while (
     await page.evaluate(
